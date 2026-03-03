@@ -1,0 +1,2 @@
+This is file handling in python
+This is append mode
