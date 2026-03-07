@@ -5,7 +5,7 @@ from PIL import Image ,ImageTk
 #  Main 
 root=tk.Tk()
 root.title("PhotoAlbum")
-root.geometry("900x900")
+root.geometry("500x500")
 # list of image path 
 imagePath=[
     r"C:\Users\Acer\OneDrive\Pictures\Pictures\PHOTOS\20220324_171057.jpg",
