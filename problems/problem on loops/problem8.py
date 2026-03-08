@@ -7,4 +7,5 @@ while(attempts<max_retries):
     print("Attempts",attempts+1,"-waittime,wai",wait_time)
     time.sleep(wait_time)
     wait_time*=2
-    attempts+=1
+    attempts+=1 
+    
