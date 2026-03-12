@@ -71,7 +71,11 @@ class car:
         return f"{self.__brand}, {self.model}"
     def fule_type(self):
         return "petrol or diessel."
-
+    
+# staticmethod: no need of self
+    @staticmethod
+    def disc():
+        return "cars are good."
 
 # my_car = car("suryansh", "mahindra")
 
@@ -96,6 +100,8 @@ print(mycar2.full_name())
 
 # polymorphism
 print(car.totalcar)
+print(car.disc())
+
 
 
 
