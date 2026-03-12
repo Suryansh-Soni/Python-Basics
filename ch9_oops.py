@@ -57,28 +57,46 @@ print(student.avg([90,80,70]))
 #     model="b6"
 # my_car=car()
 # print(my_car.brand)
-
 class car:
-    def __init__ (self,brand ,model):
-        self.brand=brand
-        self.model=model
+    totalcar=0
+    def __init__(self, brand, model):
+        self.__brand = brand
+        self.model = model
+        car.totalcar+=1
+
+    def get_brand(self):
+        return self.__brand + " !"
+
     def full_name(self):
-        return f"{self.brand},{self.model}"
-    
-my_car=car("suryansh","mahindra")
-print(my_car.brand)
-print(my_car.full_name())
+        return f"{self.__brand}, {self.model}"
+    def fule_type(self):
+        return "petrol or diessel."
 
-# iheritance
 
+# my_car = car("suryansh", "mahindra")
+
+# accessing through method
+# print(my_car.get_brand())
+# print(my_car.full_name())
+
+
+# Inheritance
 class electricCar(car):
-    def __init__(self,brand,model,batterySize):
-        super().__init__(brand,model)
-        
-        self.batterySize=batterySize
+    def __init__(self, brand, model, batterySize):
+        super().__init__(brand, model)
+        self.batterySize = batterySize
 
-mycar2=electricCar("Tesla","Model s","85KWH")
+
+mycar2 = electricCar("Tesla", "Model S", "85KWH")
+mycar3=electricCar("Tesla","b3","90kwh")
+
+#encapsulation
+
 print(mycar2.full_name())
+
+# polymorphism
+print(car.totalcar)
+
 
 
 
