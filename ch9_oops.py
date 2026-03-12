@@ -62,9 +62,24 @@ class car:
     def __init__ (self,brand ,model):
         self.brand=brand
         self.model=model
+    def full_name(self):
+        return f"{self.brand},{self.model}"
     
 my_car=car("suryansh","mahindra")
 print(my_car.brand)
+print(my_car.full_name())
+
+# iheritance
+
+class electricCar(car):
+    def __init__(self,brand,model,batterySize):
+        super().__init__(brand,model)
+        
+        self.batterySize=batterySize
+
+mycar2=electricCar("Tesla","Model s","85KWH")
+print(mycar2.full_name())
+
 
 
 
