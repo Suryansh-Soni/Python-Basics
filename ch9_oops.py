@@ -49,3 +49,22 @@ print(student.avg([90,80,70]))
 # 2.abstraction:hiding internal details and showing only functionality to the user is called abstraction
 # 3.inheritance:acquiring properties and behaviors from parent class to child class is called
 # 4.polymorphism:ability of an object to take many forms is called polymorphism
+
+
+# basic class object
+# class car:
+#     brand ="Mahindra"
+#     model="b6"
+# my_car=car()
+# print(my_car.brand)
+
+class car:
+    def __init__ (self,brand ,model):
+        self.brand=brand
+        self.model=model
+    
+my_car=car("suryansh","mahindra")
+print(my_car.brand)
+
+
+
