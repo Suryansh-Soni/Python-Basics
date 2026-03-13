@@ -33,3 +33,21 @@ def greet(name,greetig="hello"):
     print(f"{greetig}, {name}")
 
 greet("chai" ,greetig="namaste")
+
+# cache return value
+def cache(fn):
+    chach_value={}
+    def wrapper(*args):
+        if args in chach_value:
+            return chach_value[args]
+        result=fn(*args)
+        chach_value[args]=result
+        return result
+    return wrapper
+def long_running_function(a,b):
+    time.sleep(4)
+    return a+b
+
+print(long_running_function(2,3))
+
+
