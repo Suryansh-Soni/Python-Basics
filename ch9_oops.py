@@ -61,14 +61,14 @@ class car:
     totalcar=0
     def __init__(self, brand, model):
         self.__brand = brand
-        self.model = model
+        self.__model = model
         car.totalcar+=1
 
     def get_brand(self):
         return self.__brand + " !"
 
     def full_name(self):
-        return f"{self.__brand}, {self.model}"
+        return f"{self.__brand}, {self.__model}"
     def fule_type(self):
         return "petrol or diessel."
     
@@ -76,12 +76,17 @@ class car:
     @staticmethod
     def disc():
         return "cars are good."
+    @property #to hide a property and restrics the visibility to limited .Cant override
+    def model(self):
+        return self.__model
 
-# my_car = car("suryansh", "mahindra")
+my_car = car("suryansh", "mahindra")
 
 # accessing through method
-# print(my_car.get_brand())
-# print(my_car.full_name())
+
+my_car.model="tesla"
+print(my_car.get_brand())
+print(my_car.full_name())
 
 
 # Inheritance
@@ -101,6 +106,9 @@ print(mycar2.full_name())
 # polymorphism
 print(car.totalcar)
 print(car.disc())
+
+# making model readonly too.
+my_car=car("tata","90")
 
 
 
