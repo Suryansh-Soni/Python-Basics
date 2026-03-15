@@ -3,13 +3,16 @@ import json
 def load_data():
     try:
         with open('youtube.txt', 'r') as f:
-            return json.load(f)
-    except FileNotFoundError:
+            data = f.read().strip()
+            if not data:
+                return []
+            return json.loads(data)
+    except (FileNotFoundError, json.JSONDecodeError):
         return []
 
 def save_data_helper(video):
     with open('youtube.txt', 'w') as f:
-        json.dump(video, f)
+        json.dump(video, f, indent=4)
 
 def list_all_videos(video):
     if not video:
@@ -26,10 +29,36 @@ def add_video(video):
     print("Video added successfully!")
 
 def update_video(video):
-    pass
-def delete_video(video):
-    pass
+    list_all_videos(video)
 
+    if not video:
+        return
+
+    index = int(input("Enter video number to update: ")) - 1
+
+    if 0 <= index < len(video):
+        vName = input("Enter new video name: ")
+        time = input("Enter new video duration: ")
+        video[index] = {'Name': vName, 'Time': time}
+        save_data_helper(video)
+        print("Video updated successfully!")
+    else:
+        print("Invalid video number.")
+
+def delete_video(video):
+    list_all_videos(video)
+
+    if not video:
+        return
+
+    index = int(input("Enter video number to delete: ")) - 1
+
+    if 0 <= index < len(video):
+        removed = video.pop(index)
+        save_data_helper(video)
+        print(f"Deleted: {removed['Name']}")
+    else:
+        print("Invalid video number.")
 
 def main():
     video = load_data()
@@ -54,6 +83,7 @@ def main():
             case '4':
                 delete_video(video)
             case '5':
+                print("Exiting App...")
                 break
             case _:
                 print("Invalid Choice.")
